@@ -8,5 +8,7 @@
 </head>
 <body>
 	<h1>Hola Spring mundo wiiii !!!</h1>
+	<hr/>
+	<a href="form">Go to form</a>
 </body>
 </html>

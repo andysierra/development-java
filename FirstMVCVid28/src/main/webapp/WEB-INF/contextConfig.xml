@@ -14,9 +14,9 @@
 
 	<context:component-scan
 		base-package="com.andysierra"></context:component-scan>
-
 	<mvc:annotation-driven/>
 	
+	<!-- Usamos ViewResolver ya que para este ejemplo hacemos una app monolítica -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/firstMVC/"></property>
 		<property name="suffix" value=".jsp"></property>
