@@ -25,7 +25,6 @@
 
 	<h1>You sent</h1>
 	<hr />
-	<i>${pageContext.request}</i>
 	
 	<!-- 
 		Cuando se usa modelo genérico, EL puede tomar automáticamente
@@ -33,7 +32,7 @@
 	-->
 	<p>the year when you're ${age} is ${calculated}</p>
 	<hr/>
-	<img src="${pageContext.request.contextPath}/resources/img/hatsune_miku" alt="Hatsune Miku!"/>
+	<img src="${pageContext.request.contextPath}/resources/img/hatsune_miku.jpg" alt="Hatsune Miku!"/>
 
 </body>
 </html>

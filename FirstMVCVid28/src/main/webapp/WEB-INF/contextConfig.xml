@@ -14,7 +14,6 @@
 
 	<context:component-scan
 		base-package="com.andysierra"></context:component-scan>
-	<mvc:annotation-driven/>
 	
 	<!-- Usamos ViewResolver ya que para este ejemplo hacemos una app monolítica -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -22,4 +21,8 @@
 		<property name="suffix" value=".jsp"></property>
 	</bean>
 
+	<!-- Nuevos conocimientos en spring :: webmvc -->
+	<mvc:annotation-driven/>	<!-- no de para que sirve -->
+	<mvc:resources location="/resources/" mapping="/resources/**"></mvc:resources>
+	
 </beans>

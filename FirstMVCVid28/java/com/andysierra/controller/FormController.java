@@ -42,7 +42,6 @@ public class FormController {
 	 */
 	@RequestMapping("/result2")
 	public String getResult2(@RequestParam("age") int age, Model genericModel) {
-		System.out.println("CONTROLLER HA CAPTURADO: "+age);
 		genericModel.addAttribute("age", age);
 		return "result2";
 	}
