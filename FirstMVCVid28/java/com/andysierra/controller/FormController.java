@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@RequestMapping("/FormAPI")
 public class FormController {
 
 	/**
@@ -37,6 +38,9 @@ public class FormController {
 	/**
 	 * Get JSP with a result and static files, 
 	 * but now, using generic model and RequestParam
+	 * 
+	 * (Ver como se hace en cajamaynas)
+	 * 
 	 * @author Andysierra
 	 * @return String to viewResolver
 	 */

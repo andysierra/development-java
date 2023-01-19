@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Users/camil/Programacion/development-java/proto/ReconocimientoYProcesamientoAudio/lib/jsapi.jar"/>
+	<classpathentry kind="lib" path="C:/Users/camil/Programacion/development-java/proto/ReconocimientoYProcesamientoAudio/lib/sphinx4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/camil/Programacion/development-java/proto/ReconocimientoYProcesamientoAudio/lib/TIDIGITS_8gau_13dCep_16k_40mel_130Hz_6800Hz.jar"/>
+	<classpathentry kind="lib" path="C:/Users/camil/Programacion/development-java/proto/ReconocimientoYProcesamientoAudio/lib/WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

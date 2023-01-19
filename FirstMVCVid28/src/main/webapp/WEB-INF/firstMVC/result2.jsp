@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -18,7 +17,7 @@
 		System.out.println("request obtained in result.jsp has thrown an NumberFormatException!");
 		calculated = 0;
 	}	
-	pageContext.setAttribute("calculated", calculated);
+	pageContext.setAttribute("calculated", calculated);	// para usarlo en EL
 %>
 
 <body>
