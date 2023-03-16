@@ -1,0 +1,10 @@
+com\andysierra\services\interfaces\BaseService.class
+com\andysierra\model\impl\Usuario.class
+com\andysierra\controller\impl\MainControllerImpl.class
+com\andysierra\model\interfaces\BaseModel.class
+com\andysierra\controller\impl\FormControllerImpl.class
+com\andysierra\controller\interfaces\BaseController.class
+com\andysierra\services\impl\UsuarioService.class
+com\andysierra\mappings\Mappings.class
+com\andysierra\request\UsuarioRequest.class
+com\andysierra\mappings\MappingsImpl.class

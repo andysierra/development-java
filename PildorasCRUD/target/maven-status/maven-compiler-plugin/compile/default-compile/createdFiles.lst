@@ -1,0 +1,12 @@
+com\andysierra\service\BaseService.class
+com\andysierra\controller\BaseController.class
+com\andysierra\entity\BaseEntity.class
+com\andysierra\response\BaseResponse.class
+com\andysierra\response\impl\UsuarioCreateResponse.class
+com\andysierra\entity\impl\Usuario.class
+com\andysierra\util\Mappings.class
+com\andysierra\request\impl\UsuarioCreateRequest.class
+com\andysierra\request\BaseRequest.class
+com\andysierra\service\impl\UsuarioService.class
+com\andysierra\util\MappingsImpl.class
+com\andysierra\controller\impl\IndevController.class
