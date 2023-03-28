@@ -1,0 +1,41 @@
+
+// Se declara este buildscript ya que necesitaremos el plugin jaxb para
+// crear clases de dominio o entidades con base en un .xsd, que luego 
+// publicaremos como WSDL.
+buildscript {
+  repositories {
+    jcenter()
+    mavenCentral()
+  }
+
+  dependencies {
+    classpath 'com.github.jacobono:gradle-jaxb-plugin:1.3.6'
+  }
+}
+apply plugin: 'com.github.jacobono.jaxb'
+
+dependencies {
+	// Dependencias del plugin Bancolombia del entry point genérico
+    implementation project(':model')
+    implementation project(':usecase')
+    implementation 'org.springframework:spring-context'
+    
+    // dependencias necesarias para consumo de WS:
+    implementation ('org.springframework.boot:spring-boot-starter-web-services') {
+		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+	}
+	
+	// Generador de WSDL
+	implementation 'wsdl4j:wsdl4j:1.6.3'
+	
+	// Dependencias del JAXB
+	jaxb 'com.sun.xml.bind:jaxb-xjc:2.2.7-b41'
+    jaxb 'com.sun.xml.bind:jaxb-impl:2.2.7-b41'
+    jaxb 'javax.xml.bind:jaxb-api:2.2.7'
+    jaxb "org.jvnet.jaxb2_commons:jaxb2-basics-ant:0.6.5"
+  	jaxb "org.jvnet.jaxb2_commons:jaxb2-basics-annotate:0.6.5"
+}
+
+// Configuraciones de JAXB, desde donde tomaremos los .xsd y donde
+// escribiremos las clases que resulten.
+
