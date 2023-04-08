@@ -1,0 +1,49 @@
+plugins {
+    id 'com.intershop.gradle.jaxb' version '5.1.0'
+}
+
+dependencies {
+    // Dependencias del plugin Bancolombia del entry point genérico
+    implementation project(':model')
+    implementation project(':usecase')
+    implementation 'org.springframework:spring-context'
+
+    // dependencias necesarias para consumo de WS:
+    implementation ('org.springframework.boot:spring-boot-starter-web-services')
+
+    // Generador de WSDL
+    implementation 'wsdl4j:wsdl4j:1.6.3'
+
+    // Dependencias del JAXB
+    jaxb 'org.glassfish.jaxb:jaxb-runtime:3.0.1'
+    jaxb 'jakarta.xml.bind:jakarta.xml.bind-api:3.0.1'
+    jaxb 'jakarta.activation:jakarta.activation-api:2.0.1'
+    jaxb 'com.sun.xml.bind:jaxb-core:3.0.1'
+    jaxb 'com.sun.xml.bind:jaxb-xjc:3.0.1'
+    jaxb 'com.sun.xml.bind:jaxb-jxc:3.0.1'
+    jaxb 'com.sun.xml.bind:jaxb-impl:3.0.1'
+}
+
+// Configuraciones de JAXB:
+// Se configura la tarea de JAXB para definir el intercambio *.xsd <-> *.java
+jaxb {
+
+    def esquemaBB11 = file('src/main/resources/schemas/countries.xsd')		// pendiente: usar variable de entorno Docker o WSDL
+    def generated = file('src/main/java/')
+
+    println '*********************************************************'
+    println 'Ubicacion del esquema BB11:'
+    println esquemaBB11
+    println 'Ubicacion de clases generadas:'
+    println generated
+    println '*********************************************************'
+
+    // xsd a java:
+    javaGen {
+        exampleSoap {
+            schema = esquemaBB11
+            outputDir = generated
+        }
+    }
+
+}
