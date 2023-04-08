@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por Eclipse Implementation of JAXB v3.0.1 
 // Visite https://eclipse-ee4j.github.io/jaxb-ri 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2023.03.30 a las 03:16:06 PM COT 
+// Generado el: 2023.04.03 a las 09:34:36 PM COT 
 //
 
 
@@ -25,7 +25,7 @@ import jakarta.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="country" type="{http://www.bancolombia.com.co/examplesoap}country"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,36 +36,36 @@ import jakarta.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "name"
+    "country"
 })
-@XmlRootElement(name = "getCountryRequest")
-public class GetCountryRequest {
+@XmlRootElement(name = "getCountryResponse")
+public class GetCountryResponse {
 
     @XmlElement(required = true)
-    protected String name;
+    protected Country country;
 
     /**
-     * Obtiene el valor de la propiedad name.
+     * Obtiene el valor de la propiedad country.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Country }
      *     
      */
-    public String getName() {
-        return name;
+    public Country getCountry() {
+        return country;
     }
 
     /**
-     * Define el valor de la propiedad name.
+     * Define el valor de la propiedad country.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Country }
      *     
      */
-    public void setName(String value) {
-        this.name = value;
+    public void setCountry(Country value) {
+        this.country = value;
     }
 
 }
