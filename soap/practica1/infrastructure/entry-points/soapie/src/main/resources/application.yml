@@ -1,0 +1,29 @@
+spring:
+  config:
+    activate:
+      on-profile: prod
+soap:
+  wsdl:
+    portTypeName: "CountriesPort"
+    locationUri:  "/ws"
+    targetNamespace: "http://spring.io/guides/gs-producing-web-service prodsie"
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+soap:
+  wsdl:
+    portTypeName: "CountriesPort"
+    locationUri:  "/ws"
+    targetNamespace: "http://spring.io/guides/gs-producing-web-service testie"
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+soap:
+  wsdl:
+    portTypeName: "Paises_Puerto"
+    locationUri:  "/ws"
+    targetNamespace: "http://spring.io/guides/gs-producing-web-service"

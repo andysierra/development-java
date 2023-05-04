@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="AlmacenarSolicitudDeCredito_BB11"
+	targetNamespace="http://grupobancolombia.com/intf/ServiciosAdministrativos/ServiciosdeInformacionDocumental/AlmacenarSolicitudDeCredito_BB11/Enlace/V1.0"
+	xmlns:tns="http://grupobancolombia.com/intf/ServiciosAdministrativos/ServiciosdeInformacionDocumental/AlmacenarSolicitudDeCredito_BB11/Enlace/V1.0"
+	xmlns:ns="http://grupobancolombia.com/intf/ServiciosAdministrativos/ServiciosdeInformacionDocumental/AlmacenarSolicitudDeCredito_BB11/V1.0"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+
+	<wsdl:import location="AlmacenarSolicitudDeCredito_BB11_Intf_V1.wsdl"
+		namespace="http://grupobancolombia.com/intf/ServiciosAdministrativos/ServiciosdeInformacionDocumental/AlmacenarSolicitudDeCredito_BB11/V1.0">
+	</wsdl:import>
+
+	<wsdl:binding name="AlmacenarSolicitudDeCredito_BB11_HttpBinding"
+		type="ns:AlmacenarSolicitudDeCredito_BB11">
+
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+
+
+		<!--por cada operacion) -->
+		<wsdl:operation name="crearSolicitudDeCredito">
+
+			<soap:operation
+				soapAction="http://grupobancolombia.com/intf/ServiciosAdministrativos/ServiciosdeInformacionDocumental/AlmacenarSolicitudDeCredito_BB11/V1.0/crearSolicitudDeCredito" />
+
+			<wsdl:input name="crearSolicitudDeCreditoRequest">
+				<soap:body parts="parameters" use="literal" />
+				<soap:header message="ns:crearSolicitudDeCreditoRequestMsg"
+					part="requestHeader" use="literal" />
+			</wsdl:input>
+
+			<wsdl:output name="crearSolicitudDeCreditoResponse">
+				<soap:body parts="result" use="literal" />
+				<soap:header message="ns:crearSolicitudDeCreditoResponseMsg"
+					part="responseHeader" use="literal" />
+			</wsdl:output>
+
+			<wsdl:fault name="systemException">
+				<soap:fault name="systemException" use="literal" />
+			</wsdl:fault>
+			<wsdl:fault name="tipoIdentificacionNoValidoBusinessException">
+				<soap:fault name="tipoIdentificacionNoValidoBusinessException"
+					use="literal" />
+			</wsdl:fault>
+			<wsdl:fault name="tipoParticipanteNoValidoBusinessException">
+				<soap:fault name="tipoParticipanteNoValidoBusinessException"
+					use="literal" />
+			</wsdl:fault>
+			<wsdl:fault name="tipoDocumentoNoValidoBusinessException">
+				<soap:fault name="tipoDocumentoNoValidoBusinessException"
+					use="literal" />
+			</wsdl:fault>
+			<wsdl:fault name="documentoNoValidoBusinessException">
+				<soap:fault name="documentoNoValidoBusinessException"
+					use="literal" />
+			</wsdl:fault>
+			<wsdl:fault name="obligatoriedadDocumentoNoValidaBusinessException">
+				<soap:fault name="obligatoriedadDocumentoNoValidaBusinessException"
+					use="literal" />
+			</wsdl:fault>
+			<wsdl:fault name="tipoYSubTipoDocumentoNoExisteBusinessException">
+				<soap:fault name="tipoYSubTipoDocumentoNoExisteBusinessException"
+					use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="modificarSolicitudDeCredito">
+
+			<soap:operation
+				soapAction="http://grupobancolombia.com/intf/ServiciosAdministrativos/ServiciosdeInformacionDocumental/AlmacenarSolicitudDeCredito_BB11/V1.0/modificarSolicitudDeCredito" />
+
+			<wsdl:input name="modificarSolicitudDeCreditoRequest">
+				<soap:body parts="parameters" use="literal" />
+				<soap:header message="ns:modificarSolicitudDeCreditoRequestMsg"
+					part="requestHeader" use="literal" />
+			</wsdl:input>
+
+			<wsdl:output name="modificarSolicitudDeCreditoResponse">
+				<soap:body parts="result" use="literal" />
+				<soap:header message="ns:modificarSolicitudDeCreditoResponseMsg"
+					part="responseHeader" use="literal" />
+			</wsdl:output>
+
+			<wsdl:fault name="systemException">
+				<soap:fault name="systemException" use="literal" />
+			</wsdl:fault>
+			<wsdl:fault name="estadoSolicitudNoValidoBusinessException">
+				<soap:fault name="estadoSolicitudNoValidoBusinessException"
+					use="literal" />
+			</wsdl:fault>
+			<wsdl:fault name="solicitudNoEncontradaBusinessException">
+				<soap:fault name="solicitudNoEncontradaBusinessException"
+					use="literal" />
+			</wsdl:fault>
+			<wsdl:fault name="solicitudEnEstadoNoAbiertaBusinessException">
+				<soap:fault name="solicitudEnEstadoNoAbiertaBusinessException"
+					use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+
+
+		<!--por cada operacion) -->
+
+	</wsdl:binding>
+
+	<wsdl:service name="AlmacenarSolicitudDeCredito_BB11">
+		<wsdl:port binding="tns:AlmacenarSolicitudDeCredito_BB11_HttpBinding"
+			name="AlmacenarSolicitudDeCredito_BB11_HttpPort">
+			<soap:address
+				location="http://grupobancolombia.com/intf/ServiciosAdministrativos/ServiciosdeInformacionDocumental/AlmacenarSolicitudDeCredito_BB11/Enlace/V1.0" />
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>

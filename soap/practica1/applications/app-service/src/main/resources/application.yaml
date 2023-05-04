@@ -12,3 +12,4 @@ spring:
       path: /h2
   profiles:
     include:
+    active: dev

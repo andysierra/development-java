@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="AlmacenarSolicitudDeCredito_BB11"
+	targetNamespace="http://grupobancolombia.com/intf/ServiciosAdministrativos/ServiciosdeInformacionDocumental/AlmacenarSolicitudDeCredito_BB11/V1.0"
+	xmlns:tns="http://grupobancolombia.com/intf/ServiciosAdministrativos/ServiciosdeInformacionDocumental/AlmacenarSolicitudDeCredito_BB11/V1.0"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mf="http://grupobancolombia.com/ents/SOI/MessageFormat/V2.1">
+
+	<wsdl:types>
+		<xsd:schema
+			targetNamespace="http://grupobancolombia.com/intf/ServiciosAdministrativos/ServiciosdeInformacionDocumental/AlmacenarSolicitudDeCredito_BB11/V1.0">
+			<xsd:include schemaLocation="AlmacenarSolicitudDeCredito_BB11_V1.xsd" />
+
+			<xsd:import schemaLocation="soi-core-MessageFormat-V2.1.xsd"
+				namespace="http://grupobancolombia.com/ents/SOI/MessageFormat/V2.1" />
+		</xsd:schema>
+	</wsdl:types>
+
+	<!--por cada operacion) -->
+
+	<wsdl:message name="crearSolicitudDeCreditoRequestMsg">
+		<wsdl:part element="tns:crearSolicitudDeCredito" name="parameters" />
+		<wsdl:part element="mf:requestHeader" name="requestHeader" />
+	</wsdl:message>
+
+	<wsdl:message name="crearSolicitudDeCreditoResponseMsg">
+		<wsdl:part element="tns:crearSolicitudDeCreditoResponse"
+			name="result" />
+		<wsdl:part element="mf:responseHeader" name="responseHeader" />
+	</wsdl:message>
+
+	<wsdl:message name="modificarSolicitudDeCreditoRequestMsg">
+		<wsdl:part element="tns:modificarSolicitudDeCredito" name="parameters" />
+		<wsdl:part element="mf:requestHeader" name="requestHeader" />
+	</wsdl:message>
+
+	<wsdl:message name="modificarSolicitudDeCreditoResponseMsg">
+		<wsdl:part element="tns:modificarSolicitudDeCreditoResponse"
+			name="result" />
+		<wsdl:part element="mf:responseHeader" name="responseHeader" />
+	</wsdl:message>
+
+	<wsdl:message name="systemExceptionMsg">
+		<wsdl:part element="tns:systemException" name="parameters" />
+	</wsdl:message>
+
+
+	<!-- Mensajes de las Excepciones de negocio -->
+
+	<wsdl:message name="tipoIdentificacionNoValidoBusinessExceptionMsg">
+		<wsdl:part element="tns:tipoIdentificacionNoValidoBusinessException"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="tipoParticipanteNoValidoBusinessExceptionMsg">
+		<wsdl:part element="tns:tipoParticipanteNoValidoBusinessException"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="tipoDocumentoNoValidoBusinessExceptionMsg">
+		<wsdl:part element="tns:tipoDocumentoNoValidoBusinessException"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="documentoNoValidoBusinessExceptionMsg">
+		<wsdl:part element="tns:documentoNoValidoBusinessException"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="obligatoriedadDocumentoNoValidaBusinessExceptionMsg">
+		<wsdl:part element="tns:obligatoriedadDocumentoNoValidaBusinessException"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="tipoYSubTipoDocumentoNoExisteBusinessExceptionMsg">
+		<wsdl:part element="tns:tipoYSubTipoDocumentoNoExisteBusinessException"
+			name="parameters" />
+	</wsdl:message>
+
+	<wsdl:message name="estadoSolicitudNoValidoBusinessExceptionMsg">
+		<wsdl:part element="tns:estadoSolicitudNoValidoBusinessException"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="solicitudNoEncontradaBusinessExceptionMsg">
+		<wsdl:part element="tns:solicitudNoEncontradaBusinessException"
+			name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="solicitudEnEstadoNoAbiertaBusinessExceptionMsg">
+		<wsdl:part element="tns:solicitudEnEstadoNoAbiertaBusinessException"
+			name="parameters" />
+	</wsdl:message>
+
+	<!--por cada operacion) -->
+
+	<wsdl:portType name="AlmacenarSolicitudDeCredito_BB11">
+		<wsdl:operation name="crearSolicitudDeCredito">
+			<wsdl:input name="crearSolicitudDeCreditoRequest" message="tns:crearSolicitudDeCreditoRequestMsg" />
+			<wsdl:output name="crearSolicitudDeCreditoResponse"
+				message="tns:crearSolicitudDeCreditoResponseMsg" />
+			<wsdl:fault name="systemException" message="tns:systemExceptionMsg" />
+			<wsdl:fault name="tipoIdentificacionNoValidoBusinessException"
+				message="tns:tipoIdentificacionNoValidoBusinessExceptionMsg" />
+			<wsdl:fault name="tipoParticipanteNoValidoBusinessException"
+				message="tns:tipoParticipanteNoValidoBusinessExceptionMsg" />
+			<wsdl:fault name="tipoDocumentoNoValidoBusinessException"
+				message="tns:tipoDocumentoNoValidoBusinessExceptionMsg" />
+			<wsdl:fault name="documentoNoValidoBusinessException"
+				message="tns:documentoNoValidoBusinessExceptionMsg" />
+			<wsdl:fault name="obligatoriedadDocumentoNoValidaBusinessException"
+				message="tns:obligatoriedadDocumentoNoValidaBusinessExceptionMsg" />
+			<wsdl:fault name="tipoYSubTipoDocumentoNoExisteBusinessException"
+				message="tns:tipoYSubTipoDocumentoNoExisteBusinessExceptionMsg" />
+		</wsdl:operation>
+
+		<wsdl:operation name="modificarSolicitudDeCredito">
+			<wsdl:input name="modificarSolicitudDeCreditoRequest"
+				message="tns:modificarSolicitudDeCreditoRequestMsg" />
+			<wsdl:output name="modificarSolicitudDeCreditoResponse"
+				message="tns:modificarSolicitudDeCreditoResponseMsg" />
+			<wsdl:fault name="systemException" message="tns:systemExceptionMsg" />
+			<wsdl:fault name="estadoSolicitudNoValidoBusinessException"
+				message="tns:estadoSolicitudNoValidoBusinessExceptionMsg" />
+			<wsdl:fault name="solicitudNoEncontradaBusinessException"
+				message="tns:solicitudNoEncontradaBusinessExceptionMsg" />
+			<wsdl:fault name="solicitudEnEstadoNoAbiertaBusinessException"
+				message="tns:solicitudEnEstadoNoAbiertaBusinessExceptionMsg" />
+		</wsdl:operation>
+
+
+
+		<!--por cada operacion) -->
+
+	</wsdl:portType>
+
+
+</wsdl:definitions>

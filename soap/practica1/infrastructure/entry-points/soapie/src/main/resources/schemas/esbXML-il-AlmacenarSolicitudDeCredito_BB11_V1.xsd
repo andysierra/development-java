@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="unqualified" targetNamespace="http://grupobancolombia.com/intf/IL/esbXML/V3.0"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://grupobancolombia.com/intf/IL/esbXML/V3.0"
+	xmlns:bons0="http://grupobancolombia.com/intf/ServiciosAdministrativos/ServiciosdeInformacionDocumental/AlmacenarSolicitudDeCredito_BB11/V1.0"
+	xmlns:Q1="http://grupobancolombia.com/ents/IL/MessageFormat/V4.1">
+
+	<xs:import schemaLocation="il-core-MessageFormat-V4.1.xsd"
+		namespace="http://grupobancolombia.com/ents/IL/MessageFormat/V4.1">
+	</xs:import>
+
+	<xs:import schemaLocation="AlmacenarSolicitudDeCredito_BB11_V1.xsd"
+		namespace="http://grupobancolombia.com/intf/ServiciosAdministrativos/ServiciosdeInformacionDocumental/AlmacenarSolicitudDeCredito_BB11/V1.0" />
+
+	<xs:element name="esbXML" type="tns:esbXML" />
+
+	<xs:complexType name="esbXML">
+		<xs:sequence>
+			<xs:element name="Header" type="Q1:Header" />
+			<xs:element name="Body" type="tns:Body" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Body">
+		<xs:sequence>
+			<xs:choice minOccurs="0" maxOccurs="1">
+
+				<xs:element ref="bons0:crearSolicitudDeCredito" />
+				<xs:element ref="bons0:crearSolicitudDeCreditoResponse" />
+				<xs:element
+					ref="bons0:modificarSolicitudDeCredito" />
+				<xs:element
+					ref="bons0:modificarSolicitudDeCreditoResponse" />
+				
+				<xs:element ref="bons0:systemException" />
+				<xs:element ref="bons0:tipoIdentificacionNoValidoBusinessException" />
+				<xs:element ref="bons0:tipoParticipanteNoValidoBusinessException" />
+				<xs:element ref="bons0:tipoDocumentoNoValidoBusinessException" />
+				<xs:element ref="bons0:documentoNoValidoBusinessException" />
+				<xs:element ref="bons0:obligatoriedadDocumentoNoValidaBusinessException" />
+				<xs:element ref="bons0:tipoYSubTipoDocumentoNoExisteBusinessException" />
+
+				<xs:element ref="bons0:estadoSolicitudNoValidoBusinessException" />
+				<xs:element ref="bons0:solicitudNoEncontradaBusinessException" />
+				<xs:element ref="bons0:solicitudEnEstadoNoAbiertaBusinessException" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

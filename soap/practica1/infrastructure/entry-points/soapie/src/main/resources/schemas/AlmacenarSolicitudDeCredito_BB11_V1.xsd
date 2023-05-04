@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema
+	xmlns:bons0="http://grupobancolombia.com/ents/common/GenericException/V2.0"
+	xmlns:bons2="http://grupobancolombia.com/ents/Participante/Demografica/IdentificacionCliente/V2.0"
+	xmlns:tns="http://grupobancolombia.com/intf/ServiciosAdministrativos/ServiciosdeInformacionDocumental/AlmacenarSolicitudDeCredito_BB11/V1.0"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified"
+	elementFormDefault="unqualified"
+	targetNamespace="http://grupobancolombia.com/intf/ServiciosAdministrativos/ServiciosdeInformacionDocumental/AlmacenarSolicitudDeCredito_BB11/V1.0">
+
+	<!-- Seccion imports -->
+	<xs:import
+		namespace="http://grupobancolombia.com/ents/Participante/Demografica/IdentificacionCliente/V2.0"
+		schemaLocation="Participante-Demografica-IdentificacionCliente-V2.xsd">
+	</xs:import>
+
+	<xs:import
+		namespace="http://grupobancolombia.com/ents/common/GenericException/V2.0"
+		schemaLocation="common-core-GenericException-V2.xsd">
+	</xs:import>
+
+	<!-- Operaciones -->
+	<xs:element name="crearSolicitudDeCredito" type="tns:CrearSolicitudDeCredito">
+	</xs:element>
+
+	<xs:element name="crearSolicitudDeCreditoResponse" type="tns:CrearSolicitudDeCreditoResponse">
+	</xs:element>
+
+	<xs:element name="modificarSolicitudDeCredito" type="tns:ModificarSolicitudDeCredito">
+	</xs:element>
+
+	<xs:element name="modificarSolicitudDeCreditoResponse" type="tns:ModificarSolicitudDeCreditoResponse">
+	</xs:element>
+
+
+	<!-- TipoComplejos Operaciones -->
+	<xs:complexType name="CrearSolicitudDeCredito">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="numeroRadicado">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:whiteSpace value="collapse"></xs:whiteSpace>
+						<xs:maxLength value="20"></xs:maxLength>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			
+			<xs:element maxOccurs="1" minOccurs="0" name="numeroRadicadoDos">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:whiteSpace value="collapse"></xs:whiteSpace>
+						<xs:minLength value="1"></xs:minLength>
+						<xs:maxLength value="40"></xs:maxLength>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+
+			<xs:element maxOccurs="1" minOccurs="1" name="fechaSolicitud"
+				type="xs:date">
+			</xs:element>
+			<xs:element minOccurs="1" maxOccurs="1" type="xs:integer"
+				name="version"></xs:element>
+
+			<xs:element name="datosCliente" minOccurs="1" maxOccurs="unbounded"
+				type="tns:DatosCliente">
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="DatosCliente">
+		<xs:sequence>
+			<xs:element minOccurs="1" maxOccurs="1"
+				name="identificacionCliente" type="bons2:IdentificacionCliente">
+			</xs:element>
+
+			<xs:element minOccurs="1" maxOccurs="1" type="xs:integer"
+				name="cantidadDocumentosRecibidos"></xs:element>
+
+			<xs:element minOccurs="1" maxOccurs="1" name="nombreCliente">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:whiteSpace value="collapse"></xs:whiteSpace>
+						<xs:minLength value="1"></xs:minLength>
+						<xs:maxLength value="240"></xs:maxLength>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+
+			<xs:element minOccurs="1" maxOccurs="1" name="tipoCliente">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:whiteSpace value="collapse"></xs:whiteSpace>
+						<xs:minLength value="1"></xs:minLength>
+						<xs:maxLength value="40"></xs:maxLength>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+
+			<xs:element name="documentoRequerido" minOccurs="1"
+				maxOccurs="unbounded" type="tns:DocumentoRequerido">
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="DocumentoRequerido">
+		<xs:sequence>
+			<xs:element minOccurs="1" maxOccurs="1" name="subTipoDocumento">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:whiteSpace value="collapse"></xs:whiteSpace>
+						<xs:minLength value="1"></xs:minLength>
+						<xs:maxLength value="240"></xs:maxLength>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+
+			<xs:element minOccurs="1" maxOccurs="1" name="codigoDocumento">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:whiteSpace value="collapse"></xs:whiteSpace>
+						<xs:minLength value="1"></xs:minLength>
+						<xs:maxLength value="80"></xs:maxLength>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+
+			<xs:element minOccurs="0" maxOccurs="1" name="observacion">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:whiteSpace value="collapse"></xs:whiteSpace>
+						<xs:minLength value="1"></xs:minLength>
+						<xs:maxLength value="400"></xs:maxLength>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+
+			<xs:element minOccurs="1" maxOccurs="1" name="esObligatorio">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:whiteSpace value="collapse"></xs:whiteSpace>
+						<xs:minLength value="1"></xs:minLength>
+						<xs:maxLength value="20"></xs:maxLength>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+
+			<xs:element minOccurs="0" maxOccurs="1" type="xs:boolean"
+				name="esEnviado"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CrearSolicitudDeCreditoResponse">
+		<xs:sequence>
+
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ModificarSolicitudDeCredito">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="razon">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="400"></xs:maxLength>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+
+			<xs:element minOccurs="1" name="numeroRadicado" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"></xs:minLength>
+						<xs:maxLength value="20"></xs:maxLength>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			
+			<xs:element maxOccurs="1" minOccurs="0" name="numeroRadicadoDos">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:whiteSpace value="collapse"></xs:whiteSpace>
+						<xs:minLength value="1"></xs:minLength>
+						<xs:maxLength value="40"></xs:maxLength>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+
+			<xs:element minOccurs="1" name="estado" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="15"></xs:maxLength>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ModificarSolicitudDeCreditoResponse">
+		<xs:sequence>
+
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- Excepciones -->
+	<xs:element name="systemException" type="tns:SystemException">
+	</xs:element>
+	<xs:element name="tipoIdentificacionNoValidoBusinessException"
+		type="tns:TipoIdentificacionNoValidoBusinessException">
+	</xs:element>
+	<xs:element name="tipoParticipanteNoValidoBusinessException"
+		type="tns:TipoParticipanteNoValidoBusinessException">
+	</xs:element>
+	<xs:element name="tipoDocumentoNoValidoBusinessException"
+		type="tns:TipoDocumentoNoValidoBusinessException">
+	</xs:element>
+	<xs:element name="documentoNoValidoBusinessException" type="tns:DocumentoNoValidoBusinessException">
+	</xs:element>
+	<xs:element name="obligatoriedadDocumentoNoValidaBusinessException"
+		type="tns:ObligatoriedadDocumentoNoValidaBusinessException">
+	</xs:element>
+	<xs:element name="tipoYSubTipoDocumentoNoExisteBusinessException"
+		type="tns:TipoYSubTipoDocumentoNoExisteBusinessException">
+	</xs:element>
+	<xs:element name="estadoSolicitudNoValidoBusinessException"
+		type="tns:EstadoSolicitudNoValidoBusinessException">
+	</xs:element>
+	<xs:element name="solicitudNoEncontradaBusinessException"
+		type="tns:SolicitudNoEncontradaBusinessException">
+	</xs:element>
+	<xs:element name="solicitudEnEstadoNoAbiertaBusinessException"
+		type="tns:SolicitudEnEstadoNoAbiertaBusinessException">
+	</xs:element>
+
+
+
+
+	<!-- TipoComplejos Excepciones -->
+	<xs:complexType name="SystemException">
+		<xs:sequence>
+			<xs:element name="genericException" type="bons0:GenericException"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="TipoIdentificacionNoValidoBusinessException">
+		<xs:sequence>
+			<xs:element name="genericException" type="bons0:GenericException"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="TipoParticipanteNoValidoBusinessException">
+		<xs:sequence>
+			<xs:element name="genericException" type="bons0:GenericException"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="TipoDocumentoNoValidoBusinessException">
+		<xs:sequence>
+			<xs:element name="genericException" type="bons0:GenericException"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="DocumentoNoValidoBusinessException">
+		<xs:sequence>
+			<xs:element name="genericException" type="bons0:GenericException"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ObligatoriedadDocumentoNoValidaBusinessException">
+		<xs:sequence>
+			<xs:element name="genericException" type="bons0:GenericException"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="TipoYSubTipoDocumentoNoExisteBusinessException">
+		<xs:sequence>
+			<xs:element name="genericException" type="bons0:GenericException"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="EstadoSolicitudNoValidoBusinessException">
+		<xs:sequence>
+			<xs:element name="genericException" type="bons0:GenericException"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SolicitudNoEncontradaBusinessException">
+		<xs:sequence>
+			<xs:element name="genericException" type="bons0:GenericException"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SolicitudEnEstadoNoAbiertaBusinessException">
+		<xs:sequence>
+			<xs:element name="genericException" type="bons0:GenericException"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+
+</xs:schema>
